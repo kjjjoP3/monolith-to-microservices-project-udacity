@@ -3,7 +3,7 @@ name: Node.js CI with Docker
 on:
   push:
     branches:
-      - main  # Kích hoạt khi có push vào nhánh 'main'
+      - main
 
 jobs:
   build:
@@ -11,26 +11,26 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2  # Lấy mã nguồn từ repository
+      uses: actions/checkout@v2
 
     - name: Set up Node.js
       uses: actions/setup-node@v2
       with:
-        node-version: '14'  # Thiết lập Node.js version 14
+        node-version: '14'
 
     - name: Build and tag Docker images
       run: |
         docker build -t udagram-api-feed ./udagram-api-feed
-        docker tag udagram-api-feed ngxuancam/udagram-api-feed:v1
+        docker tag udagram-api-feed thanhbt29/udagram-api-feed:v1
 
         docker build -t udagram-api-user ./udagram-api-user
-        docker tag udagram-api-user ngxuancam/udagram-api-user:v1
+        docker tag udagram-api-user thanhbt29/udagram-api-user:v1
 
         docker build -t udagram-frontend ./udagram-frontend
-        docker tag udagram-frontend ngxuancam/udagram-frontend:v1
+        docker tag udagram-frontend thanhbt29/udagram-frontend:v1
 
         docker build -t reverseproxy ./udagram-reverseproxy
-        docker tag reverseproxy ngxuancam/reverseproxy:v1
+        docker tag reverseproxy thanhbt29/reverseproxy:v1
 
     - name: Log in to Docker Hub
       run: echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
@@ -40,7 +40,7 @@ jobs:
 
     - name: Push Docker images
       run: |
-        docker push ngxuancam/udagram-api-feed:v1
-        docker push ngxuancam/udagram-api-user:v1
-        docker push ngxuancam/udagram-frontend:v1
-        docker push ngxuancam/reverseproxy:v1
+        docker push thanhbt29/udagram-api-feed:v1
+        docker push thanhbt29/udagram-api-user:v1
+        docker push thanhbt29/udagram-frontend:v1
+        docker push thanhbt29/reverseproxy:v1
