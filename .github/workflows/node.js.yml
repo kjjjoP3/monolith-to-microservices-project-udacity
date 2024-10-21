@@ -1,4 +1,4 @@
-name: Node.js
+name: Node.js CI with Docker
 
 on:
   push:
@@ -10,8 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     services:
-      docker:
-        name: docker
+      docker:  # Cấu hình dịch vụ Docker không cần thuộc tính 'name'
         options: --privileged
 
     steps:
