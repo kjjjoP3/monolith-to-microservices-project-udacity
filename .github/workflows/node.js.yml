@@ -3,7 +3,7 @@ name: Node.js CI with Docker
 on:
   push:
     branches:
-      - main
+      - main  # Kích hoạt khi có push vào nhánh 'main'
 
 jobs:
   build:
