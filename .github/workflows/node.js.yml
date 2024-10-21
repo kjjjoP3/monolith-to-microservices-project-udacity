@@ -3,8 +3,7 @@ name: Node.js CI with Docker
 on:
   push:
     branches:
-      - main  # Kích hoạt workflow khi có push lên nhánh 'main'
-
+      - main
 jobs:
   build:
     runs-on: ubuntu-latest
