@@ -30,7 +30,7 @@ jobs:
         docker tag udagram-frontend thanhbt29/udagram-frontend:v1
 
         docker build -t reverseproxy ./udagram-reverseproxy
-        docker tag reverseproxy thanhbt29/udagram-reverseproxy:v1
+        docker tag reverseproxy thanhbt29/reverseproxy:v1
 
     - name: Log in to Docker Hub
       run: echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
@@ -43,4 +43,4 @@ jobs:
         docker push thanhbt29/udagram-api-feed:v1
         docker push thanhbt29/udagram-api-user:v1
         docker push thanhbt29/udagram-frontend:v1
-        docker push thanhbt29/udagram-reverseproxy:v1
+        docker push thanhbt29/reverseproxy:v1
